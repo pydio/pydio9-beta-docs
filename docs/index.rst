@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Pydio9 Tech Preview
-===============================================
+===================
 
 This documentation will provide all necessary information to download, install and run Pydio9 on your system.
 
@@ -12,6 +12,7 @@ This documentation will provide all necessary information to download, install a
    :maxdepth: 2
    :caption: Contents:
 
+   intro
 
 
 Indices and tables
