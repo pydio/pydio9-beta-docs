@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Pydio Client
-============
+Managing Services
+=================
 
-This documentation will provide all necessary information to download, install and run Pydio9 on your system.
+Pydio services are managed via a set of command line
 
 .. toctree::
    :maxdepth: 1
