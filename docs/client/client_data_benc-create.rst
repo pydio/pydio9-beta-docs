@@ -24,7 +24,7 @@ Options
       --flood int        Floods of n create nodes
       --flood-soft int   Floods one after one
   -h, --help             help for benc-create
-      --output string    result output file (default "1512485946")
+      --output string    result output file (default "1512491709")
       --path string      Path to the data
       --uuid string      UUID of the data
 
