@@ -13,4 +13,9 @@ This documentation will provide all necessary information to download, install a
    :caption: Contents:
 
    intro
+   beta-phase
+   troubleshooting
+   security
+   indepth/index
+   scale
    cmd/index
