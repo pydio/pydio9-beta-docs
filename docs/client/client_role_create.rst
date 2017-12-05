@@ -24,8 +24,8 @@ Options
 ::
 
   -h, --help           help for create
-      --label string   Label of the new role
-      --uuid string    Uuid of the new role
+  -l, --label string   Label of the new role
+  -u, --uuid string    Uuid of the new role
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

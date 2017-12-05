@@ -42,7 +42,7 @@ Options
 ::
 
   -h, --help          help for read
-      --uuid string   Uuid of the node
+  -u, --uuid string   Uuid of the node
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

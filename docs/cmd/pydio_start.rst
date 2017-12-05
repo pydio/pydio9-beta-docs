@@ -42,7 +42,7 @@ Options
 
 ::
 
-      --exclude stringArray   Start all services except for excluded.
+  -x, --exclude stringArray   Start all services except for excluded.
   -h, --help                  help for start
   -t, --tags string           Start all services for a given tag. Can be combined with argument for prefix filtering.
 

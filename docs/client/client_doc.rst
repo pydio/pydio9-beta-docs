@@ -23,7 +23,7 @@ Options
 ::
 
   -h, --help          help for doc
-      --path string   Target folder where to put the files
+  -p, --path string   Target folder where to put the files
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

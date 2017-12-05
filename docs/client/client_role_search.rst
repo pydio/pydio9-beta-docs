@@ -21,7 +21,7 @@ Options
 ::
 
   -h, --help               help for search
-      --uuid stringArray   Select a role by Uuid (will list all roles if empty)
+  -u, --uuid stringArray   Select a role by Uuid (will list all roles if empty)
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

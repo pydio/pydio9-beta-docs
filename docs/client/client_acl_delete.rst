@@ -25,11 +25,11 @@ Options
 
 ::
 
-      --action stringArray         Action value
+  -a, --action stringArray         Action value
   -h, --help                       help for delete
-      --node_id stringArray        NodeIDs
-      --role_id stringArray        RoleIDs
-      --workspace_id stringArray   WorkspaceIDs
+  -n, --node_id stringArray        NodeIDs
+  -r, --role_id stringArray        RoleIDs
+  -w, --workspace_id stringArray   WorkspaceIDs
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

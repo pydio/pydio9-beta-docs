@@ -53,10 +53,10 @@ Options
 ::
 
   -h, --help          help for list
-      --path string   Path to the data
-      --recursive     Print all the nodes recursively
+  -p, --path string   Path to the data
+  -r, --recursive     Print all the nodes recursively
       --user string   Do the listing with the context of a user's permissions
-      --uuid string   UUID of the data
+  -u, --uuid string   UUID of the data
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

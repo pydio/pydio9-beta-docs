@@ -26,8 +26,8 @@ Options
 
       --flood int     Floods of n create nodes
   -h, --help          help for create
-      --path string   Path to the data
-      --uuid string   UUID of the data
+  -p, --path string   Path to the data
+  -u, --uuid string   UUID of the data
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -29,9 +29,9 @@ Options
 ::
 
   -h, --help          help for put
-      --key string    Name of the metadata
-      --uuid string   Uuid of the node to update (use 'pc data list' or 'pc data read')
-      --val string    Json-encoded string representing the value
+  -k, --key string    Name of the metadata
+  -u, --uuid string   Uuid of the node to update (use 'pc data list' or 'pc data read')
+  -v, --val string    Json-encoded string representing the value
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

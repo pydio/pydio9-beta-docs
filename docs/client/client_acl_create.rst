@@ -24,12 +24,12 @@ Options
 
 ::
 
-      --action string         Action
-      --actionVal string      Action value
+  -a, --action string         Action
+  -v, --actionVal string      Action value
   -h, --help                  help for create
-      --node_id string        NodeIDs
-      --role_id string        RoleIDs
-      --workspace_id string   WorkspaceIDs
+  -n, --node_id string        NodeIDs
+  -r, --role_id string        RoleIDs
+  -w, --workspace_id string   WorkspaceIDs
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

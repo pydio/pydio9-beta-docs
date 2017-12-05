@@ -25,7 +25,7 @@ Options
 ::
 
   -h, --help          help for create
-      --uuid string   Node Uuid, use pc data list or pc data read to find a node by path.
+  -u, --uuid string   Node Uuid, use pc data list or pc data read to find a node by path.
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -21,7 +21,7 @@ Options
 ::
 
   -h, --help               help for delete
-      --uuid stringArray   Uuid of the role to delete
+  -u, --uuid stringArray   Uuid of the role to delete
 
 Options inherited from parent commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

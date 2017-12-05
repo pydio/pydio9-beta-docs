@@ -22,7 +22,7 @@ Options
 
       --flood int       Floods of n create nodes
   -h, --help            help for benc-stream-create
-      --output string   result output file (default "stream.1512482559.csv")
+      --output string   result output file (default "stream.1512485946.csv")
       --path string     Path to the data
 
 Options inherited from parent commands
