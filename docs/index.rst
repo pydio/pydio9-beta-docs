@@ -14,6 +14,7 @@ This documentation will provide all necessary information to download, install a
 
    intro
    beta-phase
+   install
    troubleshooting
    security
    indepth/index
