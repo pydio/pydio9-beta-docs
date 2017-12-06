@@ -1,9 +1,6 @@
 How to contribute ?
 ===================
 
-Resources
-*********
-
 Documentation
 .............
 
@@ -31,7 +28,11 @@ You can join the slack team by clicking the link below:
 
 `https://join.slack.com/t/pydio9 <https://join.slack.com/t/pydio9/shared_invite/enQtMjgwNjg4NzY3NDQwLTJlNzUxYTZiMDVjMWNjYTg0NDMxZjQxMWM0NmQ1ZmEyYjVjOTI5NjM0ODEwNmFlODkyMDBhYmU4NmJiOWU5MTk>`_
 
+Purpose of these tests
+......................
 
-What to test
-************
+This tech preview is released with the following purpose in mind :
 
+ - Run binaries in various environments, particularly any Linux distribution possible
+ - Test general features (files indexations, search, share, etc...)
+ - Test scalability : do not hesitate to index huge ammounts of data and report us any problems.
