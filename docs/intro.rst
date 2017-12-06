@@ -45,7 +45,7 @@ Backend
 The following is required to install and run the pydio9 micro services:
 
 - Linux 64bit or MacOS 64bit
-- MySQL/MariaDB v5.6+
+- MySQL/MariaDB **v5.6+** (there is currently a known issue with v5.5 and below)
 
 FrontEnd
 ........
@@ -54,4 +54,4 @@ Similar to Pydio8.0.1, but with less php extensions needed :
 
 - Php-enabled web server (Apache / Nginx) supporting url rewrites
 - Php v5.6 or v7.X
-- Php Extensions : CURL
+- Php Extensions : CURL, GD
