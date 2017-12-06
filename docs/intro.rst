@@ -16,6 +16,13 @@ What's new in Pydio 9
 
 Pydio 9 is a full rewrite of Pydio backend using **Go**, a modern server language developed and used by Google. Although still relying on PHP for the frontend part, most of the core features are now running in micro-service architecture. Micro-services are small pieces of software that can run independantly, scale-out easily by running on a distributed infrastructure, and they communicate using GRPC.
 
+Below is an overview of this new architecture (click on it to see the detail) :
+
+.. image:: img/architecture.svg
+    :alt: Pydio 9 Architecture
+    :target: _images/architecture.svg
+
+
 Currently, application data storage is persisted either in a database (MySQL only for the moment) or in an embedded KVStore (BoltDB) depending on the service. This will be unified further in the development.
 
 APIs exposed to the world are following the "API Gateway" pattern : each GRPC service may provide an additional gateway service that translates HTTP Rest into GRPC. Finally, a dedicated service is acting as a proxy to dispatch incoming queries to these gateways. PHP is no more talking to a MySQL database but directly to this top-level proxy.
