@@ -1,0 +1,109 @@
+BETA TESTING LICENSE AGREEMENT
+
+Abstrium , SAS ("Pydio") invites you (“You”) to participate, in beta testing of Pydio's pre-release software, and any
+associated documentation, including user guides, (collectively, the “Beta Software” and, collectively with any other
+accompanying software, the "Products"). To be eligible to participate, please read this Beta Test License (“Agreement”)
+carefully. By installing this software on your machine, you agree to these terms. Following receipt, Pydio may elect,
+at Pydio’s sole discretion, to provide You with a copy of the Product, and may, from time to time, provide You with
+additional information, additional Products or revisions to a Product, which shall be deemed to be part of the "Product".
+
+1. GRANT OF LICENSE.
+(a) Pydio grants You a limited, non-exclusive, nontransferable, royalty-free license to access, install and use the
+Product, solely to test the Beta Software in a development environment and to evaluate the Beta Software for the purpose
+of providing feedback to Pydio. Pydio shall retain title and all ownership rights to the Product.
+
+(b) You agree to provide Pydio with feedback about the Beta Software, including but not limited to usability, bug reports
+and test results. All test results, bug reports and other feedback provided shall be the property of Pydio and may be
+used by Pydio for any purpose. Due to the nature of our development, Pydio provides no assurance that any errors in the
+Product will be corrected.
+
+(c) Further, the Product may contain a time-out feature that disables its operation after a certain period of time.
+In the event that the Product includes a time-out feature, You should refer to the documentation provided with the
+Product, including any on- line documentation, for determining the time period and/or specific date upon which the
+Product will expire.
+
+2. TERM OF AGREEMENT. The term of this Agreement shall commence on the date accepted by You and shall continue until
+terminated by Pydio in writing at any time, with or without cause. The license granted in Section 1 with respect to the
+Product will terminate without notice upon the earlier of (i) commercial release of the Beta Software (ii) one year
+after the last date You receive the Product or any Update (as defined below) thereto, unless terminated earlier by
+Pydio (iii) or when Pydio, at its sole discretion, deactivates the corresponding beta project. Upon the termination of
+this Agreement and/or the license granted in Section 1 with respect to the Product (or upon request by Pydio), You shall
+certify destruction of all materials provided by Pydio. The following Sections shall survive termination or expiration
+of this Agreement (either in its entirety or with respect to the Product): Sections 1(b), 5, 7, 8, 9, and 11.
+
+3. COST OF TESTING. There is no charge to You for testing of the Product nor shall You be compensated or reimbursed for
+any costs or expenses incurred by You in connection with Your testing.
+
+4. PRODUCT MAINTENANCE. Pydio is not obligated to provide technical support or updates to You for any Product under this
+Agreement. However, Pydio may, in its sole discretion, provide further pre-release versions, technical support, updates
+and/or supplements of the Product and/or related information (“Updates”) to You hereunder, in which case such Updates
+shall also be deemed to be included in the “Product” and the “Beta Software,” and therefore governed by this Agreement.
+In no event shall Pydio be obligated to provide You a copy of the commercial release version of any Product in
+connection with Your participation in the beta testing project. Pydio is not obligated to make any Product commercially
+available.
+
+5. CONFIDENTIALITY. The Product, including its existence and features, and related information is the proprietary and
+confidential information of Pydio. You agree not to disclose or provide the Product, documentation, or any related
+information (including the Product features or the results of Your use or testing) to any third party, for a period of
+two years following receipt of the Product or commercial release of the Product, whichever occurs first, or to use the
+Product at any time for any purpose other than as provided in this Agreement. However, You may disclose confidential
+information in accordance with judicial or other governmental order, provided You give Pydio notice of such order in
+reasonable time for Pydio to seek a protective order prior to disclosure and shall comply with any applicable protective
+order or equivalent. Further, You shall not be obligated to maintain the confidentiality of information that You can
+prove (1) is already known to You without an obligation to maintain the same as confidential prior to receipt from Pydio;
+(2) is or becomes publicly known other than through a wrongful act by You; (3) is rightfully received by You from a
+third party without breach of an obligation of confidentiality owed to Pydio; or (4) is independently developed by You
+without the use of the confidential information. This Section 5 shall survive for two years following the termination or
+expiration of this Agreement.
+
+6. INTELLECTUAL PROPERTY RIGHTS. All title and intellectual property rights in and to the Products, are owned by Pydio.
+All title and intellectual property rights in and to the content that may be accessed through use of the Product are
+the property of the respective content owner and may be protected by applicable copyright or other intellectual property
+laws and treaties. This Agreement grants You no rights to use such content. If the Product contains documentation that
+is provided only in electronic form, You may print one copy of such electronic documentation. You may not copy the
+printed materials accompanying the Product. All rights not expressly granted are reserved by Pydio.
+
+7. DISCLAIMER OF WARRANTIES. The Product is deemed accepted upon receipt. The Product is still being tested and
+developed by Pydio, may be changed substantially before commercial release, and is provided to You without charge.
+To the maximum extent permitted by applicable law, Pydio provide the Product and support services related to the
+Product(if any) (“Support Services”) as is and with all faults, and hereby further disclaim with respect to the Product
+all warranties and conditions, express, implied or statutory, including without limitation any (if any) implied
+warranties, duties or conditions of or related to: merchantability, fitness for a particular purpose, and non-infringement,
+lack of viruses, accuracy or completeness of responses, results, workmanlike effort and lack of negligence. Also, there
+is no warranty, duty or condition of title, quiet enjoyment, quiet possession, correspondence to description or
+non-infringement. You assume the entire risk arising out of the use or performance of the Product and documentation
+and any Support Services.
+
+8. EXCLUSION OF CERTAIN DAMAGES. To the maximum extent permitted by law, in no event shall Pydio be liable for any
+consequential, incidental, direct, indirect, special, punitive, or other damages whatsoever (including, without
+limitation, damages for: lost profits, business interruption, loss of data, loss of confidential or other information,
+personal injury, loss of privacy, failure to meet any duty (including of good faith or of reasonable care), negligence,
+and any other pecuniary or other loss whatsoever) arising out of this agreement or in any way related to the use of or
+inability to use the Product, the provision of or failure to provide Support Services, or otherwise under or in
+connection with any provision of this Agreement, even in the event of the fault, tort (including negligence), strict
+liability, breach of contract or breach of warranty of Pydio, even if Pydio has been advised of the possibility of
+such damages.
+
+9. LIMITATION OF LIABILITY AND REMEDIES. Notwithstanding any damages that You might incur for any reason whatsoever
+(including, without limitation all damages referenced above and all direct or general damages), the entire liability
+of Pydio under any provision of this agreement and Your exclusive remedy for all of the foregoing shall be limited to
+actual damages incurred by You based on reasonable reliance up to five euros (€5.00). The foregoing limitations,
+exclusions and disclaimers (including Sections 7 and 8 above) shall apply to the maximum extent permitted by applicable
+law, even if any remedy fails its essential purpose.
+
+10. GOVERNING LAW; ATTORNEYS’ FEES. This Agreement shall be governed by the laws of the France, and You hereby consent
+to the exclusive jurisdiction of the state and federal courts sitting in Paris, France. You hereby agree to waive all
+defenses of lack of personal jurisdiction and forum non conveniens. If either party enforces any rights arising out of
+or relating to this Agreement, the prevailing party shall be entitled to recover its reasonable attorneys’ fees, costs
+and other expenses.
+
+11. ENTIRE AGREEMENT. This Agreement constitutes the entire agreement between Pydio and You with respect to this subject
+matter, and supersedes all prior or contemporaneous oral or written communications, proposals, representations,
+understandings or agreements not specifically incorporated herein. This Agreement may not be modified or supplemented
+in any other way, except in a writing signed by authorized representatives of You and Pydio.
+
+13. PARTIES BOUND. The individual accepting this Agreement represents that he or she has authority to execute this
+agreement on behalf of his/her employer and agrees that the relevant Products shall remain on the company premises at
+all times, accepting this Agreement agrees that they will not permit or allow unauthorized employees or individuals to
+use or access the software. As used in this Agreement, the terms "You" and "Your" shall include both the individual
+and his/her employer.
