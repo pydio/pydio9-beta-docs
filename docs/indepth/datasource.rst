@@ -23,6 +23,8 @@ Every time a datasource has it state updated, the index service publishes events
     :target: ../images/pydio-data.svg
     :alt: datasource in Pydio environment
 
+The index is currently stored in 3 tables in the database. As other micro-services, it can be configured to use its own
+database, allowing easily to shard data accross multiple nodes.
 
 The tree server
 ***************
@@ -31,3 +33,5 @@ The tree service aggregates all the datasources and presents the whole as a sing
 .. image:: ../img/tree-service.svg
     :target: ../images/tree-service.svg
     :alt: datasource tree
+
+This master tree is used internally to identify nodes by their UUID. It is used globally inside the application, and the ACL (Access Control List) are just flags positionned on any node UUID to grant read/write access to a user to a given node. This is how workspaces and shares are implemented. See the next chapter to learn more about Identity Management.
