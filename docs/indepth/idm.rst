@@ -19,50 +19,56 @@ ACL provides the glue between nodes, roles and workspaces. For a given user, the
 
 Sharing is now much more simple : sharing a folder X with a user U is as simple as granting the read permission (Acl Action "read") on the folder node UUID for the user role. User will then see a new workspace with the folder as its root node.
 
-LDAP Connection
-***************
+Connecting external directory
+*****************************
 
 Unlike in the previous version of Pydio, where external directories where synced on-the-fly when a user logged in or when the admin was listing the users, Pydio 9 now provides an asynchronous synchronisation of external directory with the internal services (users and roles).
 
+Authentication Connectors
+.........................
+
+In Pydio 9, authentication is done by passing a set of connectors in charge of authenticating a user with her credential. This is an ordered list and you can add many connectors as you want. The configuration is located at "pydio.grpc.auth" >> "connectors" section in pydio.json file. In the top level of "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to contain others connectors such as ldap, pydio-api. This connector is fixed, do not modify it. Going to deeper level, you will see "pydioconnectors". This is place that you can add/remove connectors by yourself.
+
+.. code:: json
+
+    "connectors": [
+      {
+        "type": "pydio",
+        "id": "pydio",
+        "name": "Pydio Aggregation Connector",
+        "config": {
+          "pydioconnectors": [
+            {
+              "type": "pydio-ldap",
+              "name": "connector_01",
+              "id": 3,
+              "config": {}
+            },
+            {
+              "type": "pydio-ldap",
+              "name": "connector_02",
+              "id": 2,
+              "config": {}
+            },
+            {
+              "type": "pydio-api",
+              "name": "pydioapi",
+              "id": 1
+            }
+          ]
+        }
+      }
+    ]
+
+The configuration of a connector has 4 items:
+
+- **type**: Currently there are three types available [pydio-api, pydio-ldap, pydio-mysql].
+- **name**: The name is required to distinguish the users between connectors.
+- **id**: when user authenticates with her credential, the connector with higher ID will be used. If the authentication fails, user's credential will be passed to next connector in the list until it reach success or failure at last connector - pydio-api. The id of pydio-api should be 1 - the last one.
+- **config**: the structure of this value will change depending on the connector type. Type pydio-api does not require any config, but pydio-ldap needs a complex config (see below).
+
 Configuring LDAP connection
 ...........................
-
-In Pydio 9, authentication is done by passing a set of connector when user authenticates with his/her credential. This is ordered configurable list and you can add many connector as you want. The configuration is located at "pydio.grpc.auth" >> "connectors" section in pydio.json file. In the top level of "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to content others connectors such as ldap, pydio-api. This connector is fixed and do not modify. Going to deeper level, you will see "pydioconnectors". This is place that you can add/remove connector by yourself. It look like:
-
-"connectors": [
-  {
-    "type": "pydio",
-    "id": "pydio",
-    "name": "Pydio Aggregation Connector",
-    "config": {
-      "pydioconnectors": [
-        {
-          "type": "pydio-ldap",
-          "name": "connector_01",
-          "id": 3,
-          "config": {}
-        },
-        {
-          "type": "pydio-ldap",
-          "name": "connector_02",
-          "id": 2,
-          "config": {}
-        },
-        {
-          "type": "pydio-api",
-          "name": "pydioapi",
-          "id": 1
-        }
-      ]
-    }
-  }
-
-The configuration of a connector has 04 items:
-
-- type: type of connector. There are three types: pydio-api, pydio-ldap, pydio-mysql
-- name: name of connector. The name is required to distinguish the users between connectors
-- id: when user authenticates with his/her credential, the connector with higher id will be used. If the authentication is failed, user's credential will be passed to next connector in the list until it reach success or failure at last connector - pydio-api. The id of pydio-api should be 1 - the last one.
-- config: the structure of config is different between types. The pydio-api type requires no config but pydio-ldap needs a complicated config. You will find below example a config of ldap connector
 
 The config of pydio-ldap connector has three sections:
 
@@ -70,83 +76,91 @@ The config of pydio-ldap connector has three sections:
 - A set of rules for mapping user's attributes in ldap to pydio user's attribute. The 'LeftAttribute' defines the name of attribute of external source such as ldap or other sql-base authentication. The 'RightAttribute' is the name of attribute in Pydio such as 'Roles', 'displayName', 'email', 'GroupPath'
 - Mapping options: some option supports mapping process.
 
-"connectors": [
-{
-  "type": "pydio",
-  "id": "pydio",
-  "name": "Pydio Aggregation Connector",
-  "config": {
-    "pydioconnectors": [
-      {
-        "type": "pydio-ldap",
-        "name": "pydioldap",
-        "id": 2,
-        "config": {
-          "Host": "127.0.0.1:389",
-          "Connection": "normal",
-          "domainname": "example.org",
-          "SkipVerifyCertificate": true,
-          "RootCA": "",
-          "RootCAData": "",
-          "BindDN": "cn=admin,dc=example,dc=org",
-          "BindPW": "P@ssw0rd",
-          "PageSize": 500,
-          "SupportNestedGroup": false,
-          "ActivePydioMemberOf": false,
-          "UserAttributeMeaningMemberOf": "memberOf",
-          "GroupValueFormatInMemberOf": "dn",
-          "GroupAttributeMeaningMember": "member",
-          "GroupAttributeMemberValueFormat": "dn",
-          "User": {
-            "IDAttribute": "uid",
-            "DNs": [
-              "ou=staff,ou=people,dc=example,dc=org"
+Here is a sample config below:
+
+.. code:: json
+
+    "connectors": [
+    {
+      "type": "pydio",
+      "id": "pydio",
+      "name": "Pydio Aggregation Connector",
+      "config": {
+        "pydioconnectors": [
+          {
+            "type": "pydio-ldap",
+            "name": "pydioldap",
+            "id": 2,
+            "config": {
+              "Host": "127.0.0.1:389",
+              "Connection": "normal",
+              "domainname": "example.org",
+              "SkipVerifyCertificate": true,
+              "RootCA": "",
+              "RootCAData": "",
+              "BindDN": "cn=admin,dc=example,dc=org",
+              "BindPW": "P@ssw0rd",
+              "PageSize": 500,
+              "SupportNestedGroup": false,
+              "ActivePydioMemberOf": false,
+              "UserAttributeMeaningMemberOf": "memberOf",
+              "GroupValueFormatInMemberOf": "dn",
+              "GroupAttributeMeaningMember": "member",
+              "GroupAttributeMemberValueFormat": "dn",
+              "User": {
+                "IDAttribute": "uid",
+                "DNs": [
+                  "ou=staff,ou=people,dc=example,dc=org"
+                ],
+                "Filter": "(objectClass=inetOrgPerson)",
+                "Scope": "sub"
+              },
+              "Group": {
+                "IDAttribute": "cn",
+                "DNs": [
+                  "ou=groups,dc=example,dc=org"
+                ],
+                "Filter": "(objectClass=groupOfNames)",
+                "Scope": "sub",
+                "DisplayAttribute": "cn"
+              }
+            },
+            "mappingrules": [
+              {
+                "LeftAttribute": "displayName",
+                "RightAttribute": "displayName"
+              },
+              {
+                "LeftAttribute": "memberOf",
+                "RightAttribute": "Roles"
+              },
+              {
+                "LeftAttribute": "mail",
+                "RightAttribute": "email"
+              }
             ],
-            "Filter": "(objectClass=inetOrgPerson)",
-            "Scope": "sub"
+            "mappingoptions": {
+              "AuthSource": "pydioldap",
+              "RolePrefix": "ldap_"
+            }
           },
-          "Group": {
-            "IDAttribute": "cn",
-            "DNs": [
-              "ou=groups,dc=example,dc=org"
-            ],
-            "Filter": "(objectClass=groupOfNames)",
-            "Scope": "sub",
-            "DisplayAttribute": "cn"
+          {
+            "type": "pydio-api",
+            "name": "pydioapi",
+            "id": 1
           }
-        },
-        "mappingrules": [
-          {
-            "LeftAttribute": "displayName",
-            "RightAttribute": "displayName"
-          },
-          {
-            "LeftAttribute": "memberOf",
-            "RightAttribute": "Roles"
-          },
-          {
-            "LeftAttribute": "mail",
-            "RightAttribute": "email"
-          }
-        ],
-        "mappingoptions": {
-          "AuthSource": "pydioldap",
-          "RolePrefix": "ldap_"
-        }
-      },
-      {
-        "type": "pydio-api",
-        "name": "pydioapi",
-        "id": 1
+        ]
       }
+    }
     ]
-  }
-}
-]
 
 Triggering a directory synchronization
 ......................................
 
-After adding a external connector to Pydio, the external user still can not login. You should execute a command in Pydio to importe users form external source to Pydio. It depends on the number of user you have in ldap, the command takes several minutes to finish.
+After adding an external connector to Pydio, the external user still cannot login. You should execute a command in Pydio to import users form external source to Pydio. Depending on the number of users you have in ldap, the command make take several minutes to finish.
 
- ./pc jobs sync-users
+To trigger this command in the Pydio Scheduler, use the client binary delivered with the installation. It will add a job in the scheduler, that will start right away. The job owner is hardcoded as "admin", so if you have a local user named "admin" who is logged in, you should see the progress appear in the frontend.
+
+.. code:: bash
+
+    ./client jobs sync-users
