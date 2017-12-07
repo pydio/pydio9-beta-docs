@@ -1,5 +1,5 @@
-Scheduler Jobs
-==============
+Scheduler
+=========
 
 Services involved
 *****************
