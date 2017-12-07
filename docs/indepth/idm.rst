@@ -27,9 +27,126 @@ Unlike in the previous version of Pydio, where external directories where synced
 Configuring LDAP connection
 ...........................
 
-TODO : Tran
+In Pydio 9, authentication is done by passing a set of connector when user authenticates with his/her credential. This is ordered configurable list and you can add many connector as you want. The configuration is located at "pydio.grpc.auth" >> "connectors" section in pydio.json file. In the top level of "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to content others connectors such as ldap, pydio-api. This connector is fixed and do not modify. Going to deeper level, you will see "pydioconnectors". This is place that you can add/remove connector by yourself. It look like:
+
+"connectors": [
+  {
+    "type": "pydio",
+    "id": "pydio",
+    "name": "Pydio Aggregation Connector",
+    "config": {
+      "pydioconnectors": [
+        {
+          "type": "pydio-ldap",
+          "name": "connector_01",
+          "id": 3,
+          "config": {}
+        },
+        {
+          "type": "pydio-ldap",
+          "name": "connector_02",
+          "id": 2,
+          "config": {}
+        },
+        {
+          "type": "pydio-api",
+          "name": "pydioapi",
+          "id": 1
+        }
+      ]
+    }
+  }
+
+The configuration of a connector has 04 items:
+
+- type: type of connector. There are three types: pydio-api, pydio-ldap, pydio-mysql
+- name: name of connector. The name is required to distinguish the users between connectors
+- id: when user authenticates with his/her credential, the connector with higher id will be used. If the authentication is failed, user's credential will be passed to next connector in the list until it reach success or failure at last connector - pydio-api. The id of pydio-api should be 1 - the last one.
+- config: the structure of config is different between types. The pydio-api type requires no config but pydio-ldap needs a complicated config. You will find below example a config of ldap connector
+
+The config of pydio-ldap connector has three sections:
+
+- General information for ldap server and schema
+- A set of rules for mapping user's attributes in ldap to pydio user's attribute. The 'LeftAttribute' defines the name of attribute of external source such as ldap or other sql-base authentication. The 'RightAttribute' is the name of attribute in Pydio such as 'Roles', 'displayName', 'email', 'GroupPath'
+- Mapping options: some option supports mapping process.
+
+"connectors": [
+{
+  "type": "pydio",
+  "id": "pydio",
+  "name": "Pydio Aggregation Connector",
+  "config": {
+    "pydioconnectors": [
+      {
+        "type": "pydio-ldap",
+        "name": "pydioldap",
+        "id": 2,
+        "config": {
+          "Host": "127.0.0.1:389",
+          "Connection": "normal",
+          "domainname": "example.org",
+          "SkipVerifyCertificate": true,
+          "RootCA": "",
+          "RootCAData": "",
+          "BindDN": "cn=admin,dc=example,dc=org",
+          "BindPW": "P@ssw0rd",
+          "PageSize": 500,
+          "SupportNestedGroup": false,
+          "ActivePydioMemberOf": false,
+          "UserAttributeMeaningMemberOf": "memberOf",
+          "GroupValueFormatInMemberOf": "dn",
+          "GroupAttributeMeaningMember": "member",
+          "GroupAttributeMemberValueFormat": "dn",
+          "User": {
+            "IDAttribute": "uid",
+            "DNs": [
+              "ou=staff,ou=people,dc=example,dc=org"
+            ],
+            "Filter": "(objectClass=inetOrgPerson)",
+            "Scope": "sub"
+          },
+          "Group": {
+            "IDAttribute": "cn",
+            "DNs": [
+              "ou=groups,dc=example,dc=org"
+            ],
+            "Filter": "(objectClass=groupOfNames)",
+            "Scope": "sub",
+            "DisplayAttribute": "cn"
+          }
+        },
+        "mappingrules": [
+          {
+            "LeftAttribute": "displayName",
+            "RightAttribute": "displayName"
+          },
+          {
+            "LeftAttribute": "memberOf",
+            "RightAttribute": "Roles"
+          },
+          {
+            "LeftAttribute": "mail",
+            "RightAttribute": "email"
+          }
+        ],
+        "mappingoptions": {
+          "AuthSource": "pydioldap",
+          "RolePrefix": "ldap_"
+        }
+      },
+      {
+        "type": "pydio-api",
+        "name": "pydioapi",
+        "id": 1
+      }
+    ]
+  }
+}
+]
 
 Triggering a directory synchronization
 ......................................
 
-TODO : Tran
+After adding a external connector to Pydio, the external user still can not login. You should execute a command in Pydio to importe users form external source to Pydio. It depends on the number of user you have in ldap, the command takes several minutes to finish.
+
+ ./pc jobs sync-users
