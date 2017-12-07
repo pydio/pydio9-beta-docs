@@ -51,21 +51,58 @@ External configuration
 
 The wizard will ask you to confim or enter the different public ports that will be used by the frontend to access the different Pydio services (cf Introduction_)
 
+.. _Introduction: intro.html
+
 The wizard will also ask you to confirm the OpenID Connect ID and Secret that have been generated for you. Those are necessary to identify your application as trusted by the OpenID Connect service.
 
-.. _Introduction: intro.html
+
 
 Summary
 .......
 
-The summary is there to give you a full view of what you have entered during this installation process. **It is important that you make a note of that because the frontend wizard will ask you to confirm this information in the next step**.
+The summary is there to give you a full view of what you have entered during this installation process. **It is important that you make a note of all that information because the frontend wizard will ask you to confirm this information in the next step**.
+
+.. _started:
+Start pydio services
+********************
+
+Once the wizard has successfully run, you can start the services by running the binary with the start command.
+
+.. code:: bash
+
+    ./pydio start
+
+You can use multiple arguments and flags to define your own starting strategy but to get going we recommend starting everything in one go. You can also make use of supervisord_ for ease of use.
 
 Install Frontend
 ****************
-TODO
 
+Setup a webserver (with php enabled) that serves the content of the folder *frontend* of the archive and access it via your favourite browser.
 
+If you have error messages indicating that the frontend has problems connecting, then ensure that the backend services are correctly started_. Refer to the troubleshooting_ section if you need.
+
+.. _troubleshooting: troubleshooting.html
+
+Follow the different steps of the installation wizard. All information you need was dislayed in the summary of the backend installation or in the file pydio.json you can find in the Application Data Dir.
+
+After installing, connect to your app and go the Settings page. From there, you can add a new workspace in the Workspaces section.
+
+The only options you need to give to configure is the path of the root node to use. Starting with the datasource, use the autocomplete to browse through the folders and files and choose the root node to use for this specific workspace. You can set as many root nodes as you want per workspace.
+
+You can also create, update or delete datasources in the "Manage datasources" section. Once setup and once the application has finished indexing the files that are present in the datasource, you can use any file of this new datasource as a root node to a workspace
+
+.. _supervisord:
 Using Supervisord
 *****************
 
-TODO
+If you want your pydio services to automatically start or restart, you can use supervisord to simplify the task. Refer to this page_ for details of configuration
+
+.. _page: http://supervisord.org/
+
+A simple configuration example for setting up pydio as a supervisord subprocess would be like :
+
+.. code:: bash
+
+    [program:pydio]
+    command=/Users/ghecquet/go/src/github.com/pydio/services/pydio start
+    redirect_stderr=true
