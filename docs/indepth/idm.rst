@@ -107,6 +107,7 @@ Here is a sample config below:
               "GroupValueFormatInMemberOf": "dn",
               "GroupAttributeMeaningMember": "member",
               "GroupAttributeMemberValueFormat": "dn",
+              "RolePrefix": "ldap_",
               "User": {
                 "IDAttribute": "uid",
                 "DNs": [
@@ -137,7 +138,7 @@ Here is a sample config below:
               {
                 "LeftAttribute": "mail",
                 "RightAttribute": "email"
-              }
+              }              
             ],
             "mappingoptions": {
               "AuthSource": "pydioldap",
