@@ -49,7 +49,7 @@ The wizard will also ask you which port number you want to use to access your da
 External configuration
 ......................
 
-The wizard will ask you to confim or enter the different public ports that will be used by the frontend to access the different Pydio services (cf Introduction_)
+The wizard will ask you to confirm or enter the different public ports that will be used by the frontend to access the different Pydio services (cf Introduction_)
 
 .. _Introduction: intro.html
 
@@ -83,7 +83,7 @@ If you have error messages indicating that the frontend has problems connecting,
 
 .. _troubleshooting: troubleshooting.html
 
-Follow the different steps of the installation wizard. All information you need was dislayed in the summary of the backend installation or in the file pydio.json you can find in the Application Data Dir.
+Follow the different steps of the installation wizard. All information you need was displayed in the summary of the backend installation or in the file pydio.json you can find in the Application Data Dir.
 
 After installing, connect to your app and go the Settings page. From there, you can add a new workspace in the Workspaces section.
 
