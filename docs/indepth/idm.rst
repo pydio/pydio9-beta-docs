@@ -13,7 +13,7 @@ Identity Manamement (IDM) is split accross 6 micro-services, that separately man
 - **user**: Pydio users and groups, represented as a tree.
 - **workspace** : Simple metadata about Pydio workspaces.
 
-These services are generally be accessed by GRPC and eventually provide a REST gateway for external clients management.
+These services are generally accessed by GRPC and eventually provide a REST gateway for external clients management.
 
 ACL provides the glue between nodes, roles and workspaces. For a given user, the workspace list is dynamically computed from all nodes that are seen as readable in the ACL list. As ACLs are attached to a workspace UUID, a workspace can now be composed of many root nodes. The "workspace" service provides just an additional layer of metadata for the workpsaces (label, description, owner, etc.).
 
@@ -27,7 +27,11 @@ Unlike in the previous version of Pydio, where external directories where synced
 Authentication Connectors
 .........................
 
-In Pydio 9, authentication is done by passing a set of connectors in charge of authenticating a user with her credential. This is an ordered list and you can add many connectors as you want. The configuration is located at "pydio.grpc.auth" >> "connectors" section in pydio.json file. In the top level of "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to contain others connectors such as ldap, pydio-api. This connector is fixed, do not modify it. Going to deeper level, you will see "pydioconnectors". This is place that you can add/remove connectors by yourself.
+In Pydio 9, authentication is done by passing a set of connectors in charge of authenticating a user with her credential. This is an ordered list and you can add as many connectors as you want. 
+
+The configuration is located in section "pydio.grpc.auth" >> "connectors" of the pydio.json file. At top level of the "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to contain others connectors such as ldap, pydio-api. This connector is fixed, do not modify it. 
+
+Going to deeper level, you will see "pydioconnectors". This is the place where you can add/remove connectors.
 
 .. code:: json
 
@@ -70,13 +74,13 @@ The configuration of a connector has 4 items:
 Configuring LDAP connection
 ...........................
 
-The config of pydio-ldap connector has three sections:
+The configuration of the pydio-ldap connector has three sections:
 
 - General information for ldap server and schema
 - A set of rules for mapping user's attributes in ldap to pydio user's attribute. The 'LeftAttribute' defines the name of attribute of external source such as ldap or other sql-base authentication. The 'RightAttribute' is the name of attribute in Pydio such as 'Roles', 'displayName', 'email', 'GroupPath'
 - Mapping options: some option supports mapping process.
 
-Here is a sample config below:
+Below is a sample configuration:
 
 .. code:: json
 
@@ -158,7 +162,7 @@ Here is a sample config below:
 Triggering a directory synchronization
 ......................................
 
-After adding an external connector to Pydio, the external user still cannot login. You should execute a command in Pydio to import users form external source to Pydio. Depending on the number of users you have in ldap, the command make take several minutes to finish.
+After adding an external connector to Pydio, external users still cannot login. You must execute a command to import the users form the external source to Pydio. Depending on the number of users you have in ldap, the command may take several minutes to finish.
 
 To trigger this command in the Pydio Scheduler, use the client binary delivered with the installation. It will add a job in the scheduler, that will start right away. The job owner is hardcoded as "admin", so if you have a local user named "admin" who is logged in, you should see the progress appear in the frontend.
 

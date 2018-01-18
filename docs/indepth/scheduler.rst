@@ -6,9 +6,9 @@ Services involved
 
 Pydio comes with a powerful built-in scheduler that is composed of three different services:
 
- - **jobs** : The jobs service is the main interface with the scheduler. It is in charge of persisting the jobs definition and the tasks statuses, and send proper events when they change.
- - **timer**: Timer service is a simple scheduler that will analyze jobs definition and send task trigger events at a given time if necessary
- - **tasks**: The tasks runners are stateless, pool-based workers that will react to timer events, node events or job changes events to actually run the tasks.
+ - **jobs** : The jobs service is the main interface with the scheduler. It is in charge of persisting the jobs definition and the tasks statuses, and of sending proper events when they change.
+ - **timer**: Timer service is a simple scheduler that will analyze job definitions and send task trigger events at a given time if necessary
+ - **tasks**: The task runners are stateless, pool-based workers that will react to timer events, node events or job change events to actually run the tasks.
 
 The figure below shows how these three services interact.
 
@@ -16,7 +16,7 @@ The figure below shows how these three services interact.
     :alt: Zoom on Scheduler Services
     :target: ../_images/schedulerservices.svg
 
-Jobs are currently stored inside a BoltDB file, which implies that the jobs service cannot be scaled for the moment, but the tasks runner themselves can be easily dispatched on many servers, as they listen to events in a queued manner (only one node with read an event).
+Jobs are currently stored inside a BoltDB file, which implies that the job services cannot be scaled for the moment, but the task runners themselves can be easily dispatched on many servers, as they listen to events in a queued manner (only one node reads (consumes) a given event).
 
 Jobs and Actions
 ****************
