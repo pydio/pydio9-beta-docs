@@ -94,7 +94,7 @@ Here is a sample config below:
             "config": {
               "Host": "127.0.0.1:389",
               "Connection": "normal",
-              "domainname": "example.org",
+              "DomainName": "example.org",
               "SkipVerifyCertificate": true,
               "RootCA": "",
               "RootCAData": "",
@@ -138,7 +138,7 @@ Here is a sample config below:
               {
                 "LeftAttribute": "mail",
                 "RightAttribute": "email"
-              }              
+              }
             ],
             "mappingoptions": {
               "AuthSource": "pydioldap",
