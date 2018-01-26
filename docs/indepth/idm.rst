@@ -78,7 +78,6 @@ The configuration of the pydio-ldap connector has three sections:
 
 - General information for ldap server and schema
 - A set of rules for mapping user's attributes in ldap to pydio user's attribute. The 'LeftAttribute' defines the name of attribute of external source such as ldap or other sql-base authentication. The 'RightAttribute' is the name of attribute in Pydio such as 'Roles', 'displayName', 'email', 'GroupPath'
-- Mapping options: some option supports mapping process.
 
 Below is a sample configuration:
 
