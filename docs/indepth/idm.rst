@@ -27,9 +27,9 @@ Unlike in the previous version of Pydio, where external directories where synced
 Authentication Connectors
 .........................
 
-In Pydio 9, authentication is done by passing a set of connectors in charge of authenticating a user with her credential. This is an ordered list and you can add as many connectors as you want. 
+In Pydio 9, authentication is done by passing a set of connectors in charge of authenticating a user with her credential. This is an ordered list and you can add as many connectors as you want.
 
-The configuration is located in section "pydio.grpc.auth" >> "connectors" of the pydio.json file. At top level of the "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to contain others connectors such as ldap, pydio-api. This connector is fixed, do not modify it. 
+The configuration is located in section "pydio.grpc.auth" >> "connectors" of the pydio.json file. At top level of the "connectors" section, we defined one 'parent' connector named "Pydio Aggregation Connector" to contain others connectors such as ldap, pydio-api. This connector is fixed, do not modify it.
 
 Going to deeper level, you will see "pydioconnectors". This is the place where you can add/remove connectors.
 
@@ -143,11 +143,7 @@ Below is a sample configuration:
                 "LeftAttribute": "mail",
                 "RightAttribute": "email"
               }
-            ],
-            "mappingoptions": {
-              "AuthSource": "pydioldap",
-              "RolePrefix": "ldap_"
-            }
+            ]
           },
           {
             "type": "pydio-api",
